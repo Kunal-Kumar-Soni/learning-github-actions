@@ -1,5 +1,5 @@
 name: First workflow
-on: workflow_dispatch
+on: [push,workflow_dispatch]
 jobs:
   first-job:
     runs-on: ubuntu-latest
@@ -10,16 +10,16 @@ jobs:
         run: pwd
       - name: Create JS File
         run: echo 'console.log("Hello World!");' > app.js
-      - name: Check Runner Specifications
-        run: |
-         echo "=== CPU SPECIFICATIONS ==="
-         lscpu | grep -E "Model name|Core\(s\) per socket|Socket\(s\)|Thread\(s\) per core|CPU\(s\):"
-    
-         echo -e "\n=== RAM SPECIFICATIONS ==="
-         free -h
-    
-         echo -e "\n=== STORAGE SPECIFICATIONS ==="
-         df -h /
-
       - name: Run Node JS
         run: node app.js
+
+  second-job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check Runner Specifications
+        run: |
+          l\scpu | grep -E "Model name|Core\(s\)|Socket\(s\)|CPU\(s\):"
+           free -h
+           df -h /
+          uname -a
+          cat /etc/os-release | grep PRETTY_NAME
