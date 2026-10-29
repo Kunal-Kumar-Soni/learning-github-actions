@@ -4,20 +4,11 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-      - name: List all Files
+      - name: List All Files
         run: ls -a
       - name: Print Working Directory
         run: pwd
-      - name: Create JS File
-        run: echo 'console.log("Hello World!");' > app.js
-      - name: Run Node JS
-        run: node app.js
-
-  second-job:
-    runs-on: ubuntu-latest
-    needs: first-job
-    steps:
-      - name: Check Nodejs Version
-        run: node -v
-      - name: Print Files
+      - name: Checkout Repo
+        run: actions/checkout@v7
+      - name: List All Files
         run: ls -a
