@@ -9,6 +9,6 @@ jobs:
       - name: Print Working Directory
         run: pwd
       - name: Checkout Repo
-        run: actions/checkout@v6
+        uses: actions/checkout@v7
       - name: List All Files
         run: ls -a
