@@ -4,11 +4,4 @@ jobs:
   first-job:
     runs-on: ubuntu-latest
     steps:
-      - name: List All Files
-        run: ls -a
-      - name: Print Working Directory
-        run: pwd
-      - name: Checkout Repo
-        uses: actions/checkout@v7
-      - name: List All Files
-        run: ls -a
+      - run: echo ${{true}}
